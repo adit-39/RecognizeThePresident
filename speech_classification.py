@@ -78,7 +78,7 @@ def test(output_seq,M1,M2,obs_file):
         if(next % 20 == 0):
             p_other = d["other"]/20.0
             p_obama = d["obama"]/20.0
-            if p_other>p_obama:
+            if p_other > p_obama:
                 print "{0} : Speech : ------".format(t)
             else:
                  print "{0} : Speech : Obama".format(t)
@@ -96,9 +96,13 @@ def test(output_seq,M1,M2,obs_file):
 if __name__=="__main__":
     codebook = kmeans_Mfcc_mod_train()
     d_other = read_file("other_trng_vq.txt")
-    d_obama = read_file("obama_trng_vq.txt")
+    d_obama = read_file("new_obama_trng_vq.txt")
     M1 = train_machine(d_other,"model.txt")
-    M2 = train_machine(d_other,"model.txt")
+    M2 = train_machine(d_obama,"model.txt")
+#    print '*'*50
+#    print M1.B
+#    print '*'*50
+#    print M2.B
     #obs_file_link = sys.argv[1]
     #get_audio_from_video(obs_file_link)
     obs_file = kmeans_Mfcc(codebook)

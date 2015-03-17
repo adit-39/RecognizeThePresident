@@ -14,8 +14,8 @@ def kmeans_Mfcc_mod_train():
 	rate,sig = wvf.read("all_trng.wav")
 	mfcc_feat = mfcc(sig,rate)
 	global codebook
-	codebook = sp.kmeans(mfcc_feat, 8)[0]
-	wavfiles = ["obama_trng.wav","other_trng.wav"]
+	codebook = sp.kmeans(mfcc_feat, 16)[0]
+	wavfiles = ["new_obama_trng.wav","other_trng.wav"]
 	for wavfile in wavfiles:
 		final = []
 		rate,sig = wvf.read(wavfile)
